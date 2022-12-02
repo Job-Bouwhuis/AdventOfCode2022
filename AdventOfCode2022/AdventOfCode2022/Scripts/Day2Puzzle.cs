@@ -1,11 +1,8 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using WinterRose.FileManagement;
-using static AdventOfCode2022.Scripts.DayTwoPuzzle;
-using static System.Formats.Asn1.AsnWriter;
+﻿using WinterRose.FileManagement;
 
 namespace AdventOfCode2022.Scripts;
 
-internal class DayTwoPuzzle : IMyPuzzle
+public class Day2Puzzle : IMyPuzzle
 {
     string[] input;
 
@@ -21,7 +18,7 @@ internal class DayTwoPuzzle : IMyPuzzle
         the sum is the total score of a round
         */
 
-    public DayTwoPuzzle()
+    public Day2Puzzle()
     {
         input = FileManager.ReadAllLines("Inputs/Day2.txt").ToStringArray();
     }

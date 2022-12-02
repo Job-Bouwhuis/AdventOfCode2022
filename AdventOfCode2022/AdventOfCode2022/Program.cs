@@ -22,6 +22,7 @@ namespace AdventOfCode2022
                 app.OnTick(time);
             }
 
+            app.OnExit();
             app.Exit();
         }
     }

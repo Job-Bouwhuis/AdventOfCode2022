@@ -7,7 +7,7 @@ namespace AdventOfCode2022
     {
         public override void Start(params string[] args)
         {
-            DayTwoPuzzle puzzle = new();
+            Day2Puzzle puzzle = new();
             object? resultFirst = puzzle.SolveFirst();
             object? resultSecond = puzzle.SolveSecond();
 
@@ -18,7 +18,14 @@ namespace AdventOfCode2022
 
         public override void OnTick(Tick tick)
         {
-            //Implement your application loop here.
+            if (Input.GetKey(ConsoleKey.Escape))
+                Exit();
+        }
+
+        public override void OnExit()
+        {
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }

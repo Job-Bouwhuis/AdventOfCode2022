@@ -5,3 +5,4 @@ global using System.Text;
 global using System.Threading.Tasks;
 global using WinterRose;
 global using WinterRose.ConsoleExtentions;
+global using WinterRose.FileManagement;

@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2022.Scripts;
 
-public class DayOnePuzzle : IMyPuzzle
+public class Day1Puzzle : IMyPuzzle
 {
     private List<int> elves = new();
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jobbo\\source\\repos\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj": {}
+    "C:\\GitRepositories\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jobbo\\source\\repos\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj": {
+    "C:\\GitRepositories\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jobbo\\source\\repos\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj",
+        "projectUniqueName": "C:\\GitRepositories\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj",
         "projectName": "AdventOfCode2022",
-        "projectPath": "C:\\Users\\jobbo\\source\\repos\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj",
+        "projectPath": "C:\\GitRepositories\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022.csproj",
         "packagesPath": "C:\\Users\\jobbo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jobbo\\source\\repos\\AdventOfCode2022\\AdventOfCode2022\\obj\\",
+        "outputPath": "C:\\GitRepositories\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode2022\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -27,7 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\SnowLibrary Packages Source": {},
+          "D:\\SnowLibrary Nuget package source": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

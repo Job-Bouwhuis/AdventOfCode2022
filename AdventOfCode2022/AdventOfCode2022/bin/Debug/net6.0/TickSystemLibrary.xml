@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TickSystemLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:TickSystem.Framework.Ticks">
+            <summary>
+            Class to generate new ticks
+            </summary>
+        </member>
+        <member name="M:TickSystem.Framework.Ticks.#ctor">
+            <summary>
+            Creates the Ticks class
+            </summary>
+        </member>
+        <member name="M:TickSystem.Framework.Ticks.NextTick">
+            <summary>
+            Gets a new Tick
+            </summary>
+            <returns>a newly generate <see cref="T:TickSystem.Tick"/></returns>
+        </member>
+        <member name="P:TickSystem.Framework.Ticks.NewTick">
+            <summary>
+            Returns what <see cref="M:TickSystem.Framework.Ticks.NextTick"/> generates
+            </summary>
+        </member>
+        <member name="M:TickSystem.Framework.Ticks.IsRunning(TickSystem.Tickable)">
+            <summary>
+            Finds if the application is currently being ticked or not
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TickSystem.Tick">
+            <summary>
+            Holds information about the current tick
+            </summary>
+        </member>
+        <member name="F:TickSystem.Tick.totalTicks">
+            <summary>
+            The total amount of ticks elapsed since the application started.
+            </summary>
+        </member>
+        <member name="F:TickSystem.Tick.totalMilliseconds">
+            <summary>
+            The total amount of miliseconds elapsed since the application started.
+            </summary>
+        </member>
+        <member name="M:TickSystem.Tick.#ctor">
+            <summary>
+            Creates a new empty Tick
+            </summary>
+        </member>
+        <member name="T:TickSystem.Tickable">
+            <summary>
+            Provides a base class for a tickable object.
+            </summary>
+        </member>
+        <member name="M:TickSystem.Tickable.Start(System.String[])">
+            <summary>
+            Gets called at the beginning of the application, before the first tick.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:TickSystem.Tickable.OnTick(TickSystem.Tick)">
+            <summary>
+            Gets called every tick.
+            </summary>
+            <param name="time"></param>
+        </member>
+        <member name="M:TickSystem.Tickable.Exit">
+            <summary>
+            Call this to exit the application after the current tick.
+            </summary>
+        </member>
+        <member name="M:TickSystem.Tickable.OnExit">
+            <summary>
+            Gets called just before the application exits.
+            </summary>
+        </member>
+    </members>
+</doc>

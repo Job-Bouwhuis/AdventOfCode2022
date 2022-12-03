@@ -7,7 +7,7 @@ namespace AdventOfCode2022
     {
         public override void Start(params string[] args)
         {
-            Day2Puzzle puzzle = new();
+            Day3Puzzle puzzle = new();
             object? resultFirst = puzzle.SolveFirst();
             object? resultSecond = puzzle.SolveSecond();
 

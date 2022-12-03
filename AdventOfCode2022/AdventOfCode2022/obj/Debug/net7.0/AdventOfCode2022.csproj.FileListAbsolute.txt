@@ -41,3 +41,5 @@ C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\obj\Debug\
 C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\obj\Debug\net7.0\AdventOfCode2022.genruntimeconfig.cache
 C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\obj\Debug\net7.0\ref\AdventOfCode2022.dll
 C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\Day2.txt
+C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\Day3.txt
+C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\TEMP.txt

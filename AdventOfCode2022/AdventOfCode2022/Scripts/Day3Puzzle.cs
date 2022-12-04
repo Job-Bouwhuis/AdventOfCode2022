@@ -29,9 +29,7 @@ public class Day3Puzzle : IMyPuzzle
                     }
 
                 }
-            EndLoop:
-            string i;
-
+            EndLoop:;
         }
 
         return score;
@@ -54,8 +52,7 @@ public class Day3Puzzle : IMyPuzzle
                     goto EndForeach;
                 }
             }
-        EndForeach:
-            string s;
+        EndForeach:;
         }
         return score;
     }

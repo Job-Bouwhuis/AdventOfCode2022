@@ -7,13 +7,39 @@ namespace AdventOfCode2022
     {
         public override void Start(params string[] args)
         {
-            Day4Puzzle puzzle = new();
+            Day5Puzzle puzzle = new();
             object? resultFirst = puzzle.SolveFirst();
             object? resultSecond = puzzle.SolveSecond();
 
             Console.WriteLine($"\n\tPuzzle: {puzzle.GetType().Name}\n");
-            Console.WriteLine($"\tResult of puzzle 1:\n\t{resultFirst}\n\n" ?? "Null was returned for the first result.\n\n");
-            Console.WriteLine($"\tResult of puzzle 2:\n\t{resultSecond}\n\n" ?? "Null was returned for the second resut.\n\n");
+
+            {
+                if (resultFirst is IEnumerable list and not string)
+                {
+                    Console.WriteLine("\tResult 1 was a list of items:\n");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    foreach (var item in list)
+                        Console.WriteLine($"\t{item}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine();
+                }
+                else
+                    Console.WriteLine($"\tResult of puzzle 1:\n\t{resultFirst}\n\n" ?? "Null was returned for the first result.\n\n");
+            }
+
+            {
+                if (resultSecond is IEnumerable list and not string)
+                {
+                    Console.WriteLine("\tResult 2 was a list of items:\n");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    foreach (var item in list)
+                        Console.WriteLine($"\t{item}");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                    Console.WriteLine($"\tResult of puzzle 2:\n\t{resultSecond}\n\n" ?? "Null was returned for the second resut.\n\n");
+            }
+
         }
 
         public override void OnTick(Tick tick)

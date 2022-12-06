@@ -25,8 +25,6 @@ public class Day2Puzzle : IMyPuzzle
 
     public object? SolveFirst()
     {
-
-
         int score = 0;
         foreach (var move in input)
         {

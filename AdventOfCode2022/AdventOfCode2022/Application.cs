@@ -7,12 +7,11 @@ namespace AdventOfCode2022
     {
         public override void Start(params string[] args)
         {
-            Day5Puzzle puzzle = new();
+            IMyPuzzle puzzle = new Day6Puzzle();
             object? resultFirst = puzzle.SolveFirst();
             object? resultSecond = puzzle.SolveSecond();
 
             Console.WriteLine($"\n\tPuzzle: {puzzle.GetType().Name}\n");
-
             {
                 if (resultFirst is IEnumerable list and not string)
                 {

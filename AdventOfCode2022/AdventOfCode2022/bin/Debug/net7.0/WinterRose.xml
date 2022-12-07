@@ -110,54 +110,6 @@
             Stops the flashing of the console window
             </summary>
         </member>
-        <member name="T:WinterRose.EnumeratorExtentions">
-            <summary>
-            Provides extention features for Foreach loops
-            </summary>
-        </member>
-        <member name="M:WinterRose.EnumeratorExtentions.GetEnumerator(System.Range)">
-            <summary>
-            Gets a custom enumerator for a range
-            </summary>
-            <param name="range"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WinterRose.EnumeratorExtentions.GetEnumerator(System.Int32)">
-            <summary>
-            Gets a custom enumerator for a single number
-            </summary>
-            <param name="number"></param>
-            <returns></returns>
-        </member>
-        <member name="T:WinterRose.CustomIntEnumerator">
-            <summary>
-            Provides enumerations on a range or single number
-            </summary>
-        </member>
-        <member name="M:WinterRose.CustomIntEnumerator.#ctor(System.Range)">
-            <summary>
-            Creates a new object of this struct
-            </summary>
-            <param name="range"></param>
-            <exception cref="T:System.NotSupportedException"></exception>
-        </member>
-        <member name="M:WinterRose.CustomIntEnumerator.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Creates a new object of this struct
-            </summary>
-            <param name="range"></param>
-        </member>
-        <member name="M:WinterRose.CustomIntEnumerator.MoveNext">
-            <summary>
-            Moves the current value to the next position
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:WinterRose.CustomIntEnumerator.Current">
-            <summary>
-            The current value
-            </summary>
-        </member>
         <member name="T:WinterRose.FileManagement.DirectorySerializer">
             <summary>
             Provides methods to serialize or deserialize a directory
@@ -306,10 +258,11 @@
             <returns>a string array of all lines</returns>
             <exception cref="T:System.IO.FileNotFoundException"></exception>
         </member>
-        <member name="M:WinterRose.FileManagement.FileManager.CreateFile(System.String,System.String)">
+        <member name="M:WinterRose.FileManagement.FileManager.CreateFile(System.String)">
             <summary>
             Creates a new file with the given path and disposes its connection to it immidiately. if the full path does not exist, it creates it
             </summary>
+            <param name="Path"></param>
         </member>
         <member name="M:WinterRose.FileManagement.FileManager.ZipDirectory(System.String,System.String,System.IO.Compression.CompressionLevel,System.Boolean)">
             <summary>
@@ -618,6 +571,544 @@
             <param name="decimals"></param>
             <returns>the persentage calculated from the given parameters</returns>
         </member>
+        <member name="F:WinterRose.Networking.UDPClient.OnServerMessageRecieved">
+            <summary>
+            Gets invoked when a message has been recieved from the server
+            </summary>
+        </member>
+        <member name="M:WinterRose.Networking.UDPClient.StartListening">
+            <summary>
+            Makes it this client listenes for any messages from the server
+            </summary>
+        </member>
+        <member name="T:WinterRose.Networking.UDPServer">
+            <summary>
+            A UDP server that can be used to send and receive messages.
+            </summary>
+        </member>
+        <member name="F:WinterRose.Networking.UDPServer.Port">
+            <summary>
+            the port this server runs on
+            </summary>
+        </member>
+        <member name="F:WinterRose.Networking.UDPServer.OnMessageRecieved">
+            <summary>
+            Gets invoked when a new message is recieved.
+            </summary>
+        </member>
+        <member name="M:WinterRose.Networking.UDPServer.#ctor(System.Int32)">
+            <summary>
+            Creates a new UDP server.
+            </summary>
+            <param name="port"></param>
+        </member>
+        <member name="M:WinterRose.Networking.UDPServer.StartServer">
+            <summary>
+            Starts the server
+            </summary>
+        </member>
+        <member name="M:WinterRose.Networking.UDPServer.SendAsync(System.String,System.Net.EndPoint)">
+            <summary>
+            Sends bytes to the specified endpoint.
+            </summary>
+            <param name="message"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WinterRose.Serialization.IncludePropertiesForFieldAttribute">
+            <summary>
+            Represents an attribute that can be used to include properties in class fields in the serialization process
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.ExcludeFromSerializationAttribute">
+            <summary>
+            Makes sure that when serializing or deserializing this field will always be ignore
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.IncludeWithSerializationAttribute">
+            <summary>
+            Tells the serializer to include this property when handling its declaring class
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.IncludePrivateFieldsAttribute">
+            <summary>
+            Tells the serializer to use the private fields within this class or struct even if the passed setting states not to include them
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.IncludeAllPropertiesAttribute">
+            <summary>
+            Tells the serializer to include all properties in the given class or struct even if they do not have the <b>IncludeWithSerializationAttribute</b> attribute
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.SnowSerializer">
+            <summary>
+            Provides methods for the Serializing and Deserializing to and from the Snow-Format. it can be used to save and load data for use after a program reboot
+            </summary>
+        </member>
+        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeWIP``1(``0,WinterRose.Serialization.SerializerSettings)">
+            <summary>
+            WIP... do not use
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeWIP``1(System.String,System.Boolean,WinterRose.Serialization.SerializerSettings)">
+            <summary>
+            WIP... do not use
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WinterRose.Serialization.SerializerSettings">
+            <summary>
+            Settings for the serializer. these settings are only used for operations on a collection of classes. they are not used for operations on single classes.
+            </summary>
+        </member>
+        <member name="P:WinterRose.Serialization.SerializerSettings.ProgressReporter">
+            <summary>
+            the action that is called wheneve the serializer handled items. this number can be set at <see cref="P:WinterRose.Serialization.SerializerSettings.ReportEvery"/> -- <b>NOTE:</b> this only happens on lists and arrays. 
+            </summary>
+        </member>
+        <member name="P:WinterRose.Serialization.SerializerSettings.ReportEvery">
+            <summary>
+            how often <see cref="P:WinterRose.Serialization.SerializerSettings.ProgressReporter"/> should be invoked when serializing or deserialzing
+            </summary>
+        </member>
+        <member name="F:WinterRose.Serialization.SerializerSettings.LudicrusMode">
+            <summary>
+            Tells the serializer to stress the CPU as much as it possibly can. This can hurt the speed of the operation on lower end machines
+            </summary>
+        </member>
+        <member name="F:WinterRose.Serialization.SerializerSettings.theadsToUse">
+            <summary>
+            The number, between 1 and 32, of how many threads the serializer may use to serialize or deserialize items in a list at once. 1 item per thread will be serialized or deserialized at a time.
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.InvalidArgumentException">
+            <summary>
+            Gets thrown when an argument is invalid
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.TypeNotFoundException">
+            <summary>
+            Gets thrown when a type is not found when using the serializer
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.FieldNotSupportedException">
+            <summary>
+            Gets thrown when a field is not supported by the serializer
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.FieldNotFoundException">
+            <summary>
+            Gets thrown when a field is not found within the current handling class, but is present in the serialized data
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.SerializationFailedException">
+            <summary>
+            Gets thrown when anything fails when serializing
+            </summary>
+        </member>
+        <member name="T:WinterRose.Serialization.DeserializationFailedException">
+            <summary>
+            Gets thrown when anything fails when deserializing
+            </summary>
+        </member>
+        <member name="T:WinterRose.ProgressReporter">
+            <summary>
+            Used to report the progress of serializing or deserializing
+            </summary>
+        </member>
+        <member name="P:WinterRose.ProgressReporter.Progress">
+            <summary>
+            the percentage of completed entries
+            </summary>
+        </member>
+        <member name="P:WinterRose.ProgressReporter.Message">
+            <summary>
+            a descriptive message 
+            </summary>
+        </member>
+        <member name="M:WinterRose.ProgressReporter.op_Implicit(WinterRose.ProgressReporter)~System.String">
+            <summary>
+            Gets the message of progress reporter
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:WinterRose.ProgressReporter.op_Implicit(WinterRose.ProgressReporter)~System.Double">
+            <summary>
+            get the persentage value of the progress reporter
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:WinterRose.ActivatorExtentions">
+            <summary>
+            Provides extra methods for creating instances of types. Works in conjunction with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:WinterRose.ActivatorExtentions.CreateInstance(System.Type)">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.
+            </summary>
+            <returns>The created object. if the type has no parameterless constructor, 
+            and no constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>, returns null.</returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtentions.CreateInstance``1">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.
+            </summary>
+            <returns>The created object. if the type has no parameterless constructor, 
+            and no constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>, returns null.</returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtentions.CreateInstance(System.Type,System.Int32)">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.<br></br>
+            With <paramref name="constructorIndex"/> you can specify which constructor to use out of the valid constructors. <b>the constructors are sorted on their position in the script</b>
+            </summary>
+            <param name="type"></param>
+            <param name="constructorIndex">Index is zero-based.</param>
+            <returns>The created object. if the type has no parameterless constructor, 
+            and no constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>, returns null.</returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtentions.CreateInstance``1(System.Int32)">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.<br></br>
+            With <paramref name="constructorIndex"/> you can specify which constructor to use out of the valid constructors. <b>the constructors are sorted on their position in the script</b>
+            </summary>
+            <param name="constructorIndex">Index is zero-based.</param>
+            <returns>The created object. If </returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtentions.CreateInstanceOf(System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of the type who's type and assembly names are given. optionally filters on namespaces aswell.
+            </summary>
+            <param name="typeName">the name of the type</param>
+            <param name="assemblyName">the name of the assembly</param>
+            <param name="namespaceName">the namespace</param>
+            <returns>An instance of the found type. or null if noe type was found.</returns>
+        </member>
+        <member name="T:WinterRose.ActivatorExtra">
+            <summary>
+            Provides extra methods for creating instances of types. Works in conjunction with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:WinterRose.ActivatorExtra.CreateInstance(System.Type)">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.
+            </summary>
+            <returns>The created object. if the type has no parameterless constructor, 
+            and no constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>, returns null.</returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtra.CreateInstance``1">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.
+            </summary>
+            <returns>The created object. if the type has no parameterless constructor, 
+            and no constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>, returns null.</returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtra.CreateInstance(System.Type,System.Int32)">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.<br></br>
+            With <paramref name="constructorIndex"/> you can specify which constructor to use out of the valid constructors. <b>the constructors are sorted on their position in the script</b>
+            </summary>
+            <param name="type"></param>
+            <param name="constructorIndex">Index is zero-based.</param>
+            <returns>The created object. if the type has no parameterless constructor, 
+            and no constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>, returns null.</returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtra.CreateInstance``1(System.Int32)">
+            <summary>
+            Creates an instance of the given generic type. The type must have a parameterless constructor, 
+            or a constructor with the <see cref="T:WinterRose.DefaultArgumentsAttribute"/>.<br></br>
+            With <paramref name="constructorIndex"/> you can specify which constructor to use out of the valid constructors. <b>the constructors are sorted on their position in the script</b>
+            </summary>
+            <param name="constructorIndex">Index is zero-based.</param>
+            <returns>The created object. If </returns>
+        </member>
+        <member name="M:WinterRose.ActivatorExtra.CreateInstanceOf(System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of the type who's type and assembly names are given. optionally filters on namespaces aswell.
+            </summary>
+            <param name="typeName">the name of the type</param>
+            <param name="assemblyName">the name of the assembly</param>
+            <param name="namespaceName">the namespace</param>
+            <returns>An instance of the found type. or null if noe type was found.</returns>
+        </member>
+        <member name="T:WinterRose.DefaultArgumentsAttribute">
+            <summary>
+            this attribute may provide default constructor arguments. Only works if any of the following methods are used:<br></br><br></br>
+            
+            <see cref="M:WinterRose.ActivatorExtra.CreateInstance(System.Type)"/><br></br>
+            <see cref="M:WinterRose.ActivatorExtra.CreateInstance(System.Type,System.Int32)"/><br></br>
+            <see cref="M:WinterRose.ActivatorExtra.CreateInstance``1"/><br></br>
+            <see cref="M:WinterRose.ActivatorExtra.CreateInstance``1(System.Int32)"/>
+            </summary>
+        </member>
+        <member name="T:WinterRose.EnumeratorExtentions">
+            <summary>
+            Provides extention features for Foreach loops
+            </summary>
+        </member>
+        <member name="M:WinterRose.EnumeratorExtentions.GetEnumerator(System.Range)">
+            <summary>
+            Gets a custom enumerator for a range
+            </summary>
+            <param name="range"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.EnumeratorExtentions.GetEnumerator(System.Int32)">
+            <summary>
+            Gets a custom enumerator for a single number
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WinterRose.CustomIntEnumerator">
+            <summary>
+            Provides enumerations on a range or single number
+            </summary>
+        </member>
+        <member name="M:WinterRose.CustomIntEnumerator.#ctor(System.Range)">
+            <summary>
+            Creates a new object of this struct
+            </summary>
+            <param name="range"></param>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:WinterRose.CustomIntEnumerator.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new object of this struct
+            </summary>
+            <param name="range"></param>
+        </member>
+        <member name="M:WinterRose.CustomIntEnumerator.MoveNext">
+            <summary>
+            Moves the current value to the next position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WinterRose.CustomIntEnumerator.Current">
+            <summary>
+            The current value
+            </summary>
+        </member>
+        <member name="T:WinterRose.MutableString">
+            <summary>
+            Represents a mutable string
+            </summary>
+        </member>
+        <member name="P:WinterRose.MutableString.IsDisposed">
+            <summary>
+            Gets whether this Mutable String is disposed
+            </summary>
+        </member>
+        <member name="P:WinterRose.MutableString.Length">
+            <summary>
+            Gets the length of this Mutable String
+            </summary>
+        </member>
+        <member name="M:WinterRose.MutableString.#ctor">
+            <summary>
+            Creates a new instance of the MutableString struct
+            </summary>
+        </member>
+        <member name="M:WinterRose.MutableString.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the MutableString struct, using the given value as the initial value
+            </summary>
+        </member>
+        <member name="M:WinterRose.MutableString.op_Implicit(System.String)~WinterRose.MutableString">
+            <summary>
+            Creates a <see cref="T:WinterRose.MutableString"/> from a standard <see cref="T:System.String"/>
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="M:WinterRose.MutableString.op_Implicit(WinterRose.MutableString)~System.String">
+            <summary>
+            Creates a standard <see cref="T:System.String"/> from a <see cref="T:WinterRose.MutableString"/>
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="M:WinterRose.MutableString.op_Addition(WinterRose.MutableString,System.Char)">
+            <summary>
+            Adds the given character to this mutable string
+            </summary>
+            <param name="s"></param>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.MutableString.op_Addition(WinterRose.MutableString,System.String)">
+            <summary>
+            Adds the given string to this Mutable String
+            </summary>
+            <param name="s"></param>
+            <param name="text"></param>
+            <returns>the modified Mutable String</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Append(WinterRose.MutableString)">
+            <summary>
+            Appends the given text to this Mutable String
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:WinterRose.MutableString.Append(System.Char)">
+            <summary>
+            Appends the given character to this Mutable String
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:WinterRose.MutableString.StartsWith(WinterRose.MutableString)">
+            <summary>
+            Checks if the given Mutable String starts with the given range of characters
+            </summary>
+            <param name="text"></param>
+            <returns>True if the first characters of this Mutable String match the given text</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.StartsWith(System.Char)">
+            <summary>
+            Checks if the given Mutable String starts with the given character
+            </summary>
+            <returns>True if the first character is the given character, false otherwise</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.EndsWith(WinterRose.MutableString)">
+            <summary>
+            Checks if this Mutable String ends with the specified range of characters
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Prepend(WinterRose.MutableString)">
+            <summary>
+            Prepends the given text to this Mutable String
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:WinterRose.MutableString.Split(System.Char,System.StringSplitOptions)">
+            <summary>
+            Splits the <see cref="T:WinterRose.MutableString"/> into multiple parts based on the given character
+            </summary>
+            <param name="seperator"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Contains(System.Char)">
+            <summary>
+            Checks if the given character consists within this Mutable String
+            </summary>
+            <param name="c"></param>
+            <returns>true if the character is contained within this Mutable String,otherwise false</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Contains(WinterRose.MutableString)">
+            <summary>
+            Checks if the given range of characters exists within this Mutable String
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.MutableString.TrimStart(System.Char)">
+            <summary>
+            Trims the given character from the start of the sequence
+            </summary>
+            <param name="c"></param>
+            <returns>The same instance with the applied changes</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.TrimEnd(System.Char)">
+            <summary>
+            Trims the given character from the end of the sequence
+            </summary>
+            <param name="c"></param>
+            <returns>The same instance with the applied changes</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Trim">
+            <summary>
+            Trims all whitespaces before and after any text
+            </summary>
+            <returns>The same instance with the applied changes</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.TrimStart">
+            <summary>
+            Trims all whitespaces from the start of this sequence
+            </summary>
+            <returns>The same instance with the applied changes</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.TrimEnd">
+            <summary>
+            Trims all whitespaces from the end of this sequence
+            </summary>
+            <returns>The same instance with the applied changes</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Base64Encode">
+            <summary>
+            Converts the sequence of characters into a base64 string. <br></br><b>Notice:</b> this creates a normal string instance and not a <see cref="T:WinterRose.MutableString"/>;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Base64Decode">
+            <summary>
+            Converts the sequence of base64 characters into a normal string. <br></br><b>Notice:</b> this creates a normal string instance and not a <see cref="T:WinterRose.MutableString"/>;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WinterRose.MutableString.Item(System.Int32)">
+            <summary>
+            Indexes and finds the character at the specified index
+            </summary>
+            <param name="index"></param>
+            <returns>the found character</returns>
+            <exception cref="T:System.IndexOutOfRangeException">thrown if the index is out of range</exception>
+        </member>
+        <member name="P:WinterRose.MutableString.Item(System.Range)">
+            <summary>
+            Gets a range of characters of this Mutable string.
+            </summary>
+            <param name="index"></param>
+            <returns>A new Mutable string containing the characters of the given range</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.IndexOf(System.Char)">
+            <summary>
+            Gets the index of the specified character.
+            </summary>
+            <param name="c"></param>
+            <returns>The index at which the character given exists. or 0 if it does not exist in this Mutable String</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.IsNullOrWhitespace">
+            <summary>
+            Checks if this Mutable string is null, empty, or consists of only whitespace characters
+            </summary>
+            <returns>True if this Mutable string is null, empty, or consists of only whitespace characters, otherwise false</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.IsNullOrEmpty">
+            <summary>
+            Checks if this Mutable string is null or empty
+            </summary>
+            <returns>True if this Mutable string is null or empty, otherwise false</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.GetEnumerator">
+            <summary>
+            Gets the enumerator that hold all characters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.MutableString.ToString">
+            <summary>
+            Creates a standard <see cref="T:System.String"/> interpretation of this Mutable String
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this Mutable String</returns>
+        </member>
+        <member name="M:WinterRose.MutableString.Dispose">
+            <summary>
+            Disposes this Mutable String
+            </summary>
+        </member>
         <member name="T:WinterRose.ActionQueuer">
             <summary>
             Allows for queueing of Methods with no arguments and no return values.
@@ -877,360 +1368,6 @@
             </summary>
             <param name="argument"></param>
         </member>
-        <member name="T:WinterRose.Serialization.IncludePropertiesForFieldAttribute">
-            <summary>
-            Represents an attribute that can be used to include properties in class fields in the serialization process
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.ExcludeFromSerializationAttribute">
-            <summary>
-            Makes sure that when serializing or deserializing this field will always be ignore
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.IncludeWithSerializationAttribute">
-            <summary>
-            Tells the serializer to include this property when handling its declaring class
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.IncludePrivateFieldsAttribute">
-            <summary>
-            Tells the serializer to use the private fields within this class or struct even if the passed setting states not to include them
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.IncludeAllPropertiesAttribute">
-            <summary>
-            Tells the serializer to include all properties in the given class or struct even if they do not have the <b>IncludeWithSerializationAttribute</b> attribute
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.SnowSerializer">
-            <summary>
-            Provides methods for the Serializing and Deserializing to and from the Snow-Format. it can be used to save and load data for use after a program reboot
-            </summary>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.Serialize``1(``0,System.Boolean,System.Boolean)">
-            <summary>
-            Serialize an object to the Snow-Format. returns a string containing all datafields. Check the README.md provided for supported values. skips and any value with the "ExcludeFromSerialization" attribute
-            </summary>
-            <returns>a string format containing all data from the given object</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeList``1(System.Collections.Generic.List{``0},System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Serialize a list of objects to the Snow-format. returns a string containing all objects with their datafields. can only nest 2 classes from the base class
-            if the amount of items to handle is more than 5000 it uses 4 threads and processes 4 items at once
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided list</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeArray``1(``0[],System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Serialize a array of objects to the Snow-format. returns a string containing all objects with their base C# datatypes
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided array</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeList``1(System.Collections.Generic.List{``0},System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Serialize an object to the Snow-Format.
-            reports its progress to the given function every given amount of iteration
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided list</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeArray``1(``0[],System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Serialize an object to the Snow-Format.
-            reports its progress to the given function every given amount of iteration
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided list</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.Deserialize``1(System.String,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Deserialize a string from the Snow-Format into a C# class object. 
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            </summary>
-            <returns>the deserialized object with values given from the serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeList``1(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Deserialize a string from the Snow-Format into a list of C# class objects. 
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            if <paramref name="potatoCPU"/> is set to true it will make sure to only process one object at a time on a single thread.
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>a list of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeList``1(System.String,System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Deserialize a string from the Snow-Format into a list of C# class objects. 
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>a list of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeArray``1(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Deserialize a string from the Snow-Format into an array of C# class objects.
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            /// <returns>an array of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeArray``1(System.String,System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Deserialize a string from the Snow-Format into an array of C# class objects.
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            reports its progress to the given function every time the given amount of iteration. 
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            /// <returns>an array of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeAsync``1(``0,System.Boolean,System.Boolean)">
-            <summary>
-            Asynchronously serializes an object to the Snow-Format. returns a string containing all datafields. Check the README.md provided for supported values. skips and any value with the "ExcludeFromSerialization" attribute
-            </summary>
-            <returns>a string format containing all data from the given object</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeListAsync``1(System.Collections.Generic.List{``0},System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Serializes a list of objects to the Snow-format.returns a string containing all objects with their datafields. can only nest 2 classes from the base class
-            if the amount of items to handle is more than 5000 it uses 4 threads and processes 4 items at once
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided list</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeArrayAsync``1(``0[],System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Serializes a array of objects to the Snow-format.returns a string containing all objects with their base C# datatypes
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            if its set to false and the given amount of objects is more than 5000 it will process 4 at a time
-            </summary>
-            <returns>string containing the data of every object instance in the provided array</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeListAsync``1(System.Collections.Generic.List{``0},System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Serializes an object to the Snow=Format.
-            reports its progress to the given function every given amount of iteration
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided list</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeAsync``1(``0[],System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Serializes an object array to the Snow=Format.
-            reports its progress to the given function every given amount of iteration
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>string containing the data of every object instance in the provided list</returns>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type corrosponding with a class field is found</exception>
-            <exception cref="T:System.Exception">thrown if creation of classfield instance has failed</exception>
-            <exception cref="T:WinterRose.Serialization.SerializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeAsync``1(System.String,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Asynchronously Deserializes a string from the Snow-Format into a C# class object. 
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            </summary>
-            <returns>the deserialized object with values given from the serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeListAsync``1(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Deserializes a string from the Snow-Format into a list of C# class objects. 
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            if <paramref name="potatoCPU"/> is set to true it will always use 1 thread and thus process one item at a time. else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>a list of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeListAsync``1(System.String,System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Deserializes a string from the Snow-Format into a list of C# class objects. 
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            if its set to false, it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            <returns>a list of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeArrayasync``1(System.String,System.Action{WinterRose.ProgressReporter},System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Asynchronously Deserializes a string from the Snow=Format into an array of C# class objects.
-            when 'ignoreNotFoundFields' is true it will not throw an exception when it tries to deserialize a field which does not exist in the given class. the data that was linked to the field will be ignored aswell.
-            reports its progress to the given function every time the given amount of iteration. 
-            if <paramref name="potatoCPU"/> is set to true it will process only 1 object at a time no matter the total objects to be handled. 
-            else it will determain the best distribution among the  allowed usable threads and processes multiple at once
-            </summary>
-            /// <returns>an array of objects containing the data that was extracted from the provided serialized string</returns>
-            <exception cref="T:System.ArgumentNullException">thrown when 'assembly' or 'typeName' are null when working with a classfield object</exception>
-            <exception cref="T:WinterRose.Serialization.TypeNotFoundException">thrown when no type was found for the classfield object</exception>
-            <exception cref="T:WinterRose.FailedToCastTypeException">thrown when when the serializer could not cast the string value to the given field type</exception>
-            <exception cref="T:WinterRose.Serialization.DeserializationFailedException">thrown when any error is thrown. holds this thrown error as its inner exception</exception>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.SerializeWIP``1(``0,WinterRose.Serialization.SerializerSettings)">
-            <summary>
-            WIP... do not use
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WinterRose.Serialization.SnowSerializer.DeserializeWIP``1(System.String,System.Boolean,WinterRose.Serialization.SerializerSettings)">
-            <summary>
-            WIP... do not use
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="T:WinterRose.Serialization.SerializerSettings">
-            <summary>
-            Settings for the serializer. these settings are only used for operations on a collection of classes. they are not used for operations on single classes.
-            </summary>
-        </member>
-        <member name="P:WinterRose.Serialization.SerializerSettings.ProgressReporter">
-            <summary>
-            the action that is called wheneve the serializer handled items. this number can be set at <see cref="P:WinterRose.Serialization.SerializerSettings.ReportEvery"/> -- <b>NOTE:</b> this only happens on lists and arrays. 
-            </summary>
-        </member>
-        <member name="P:WinterRose.Serialization.SerializerSettings.ReportEvery">
-            <summary>
-            how often <see cref="P:WinterRose.Serialization.SerializerSettings.ProgressReporter"/> should be invoked when serializing or deserialzing
-            </summary>
-        </member>
-        <member name="F:WinterRose.Serialization.SerializerSettings.LudicrusMode">
-            <summary>
-            Tells the serializer to stress the CPU as much as it possibly can. This can hurt the speed of the operation on lower end machines
-            </summary>
-        </member>
-        <member name="F:WinterRose.Serialization.SerializerSettings.theadsToUse">
-            <summary>
-            The number, between 1 and 32, of how many threads the serializer may use to serialize or deserialize items in a list at once. 1 item per thread will be serialized or deserialized at a time.
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.InvalidArgumentException">
-            <summary>
-            Gets thrown when an argument is invalid
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.TypeNotFoundException">
-            <summary>
-            Gets thrown when a type is not found when using the serializer
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.FieldNotSupportedException">
-            <summary>
-            Gets thrown when a field is not supported by the serializer
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.FieldNotFoundException">
-            <summary>
-            Gets thrown when a field is not found within the current handling class, but is present in the serialized data
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.SerializationFailedException">
-            <summary>
-            Gets thrown when anything fails when serializing
-            </summary>
-        </member>
-        <member name="T:WinterRose.Serialization.DeserializationFailedException">
-            <summary>
-            Gets thrown when anything fails when deserializing
-            </summary>
-        </member>
-        <member name="T:WinterRose.ProgressReporter">
-            <summary>
-            Used to report the progress of serializing or deserializing
-            </summary>
-        </member>
-        <member name="P:WinterRose.ProgressReporter.Progress">
-            <summary>
-            the percentage of completed entries
-            </summary>
-        </member>
-        <member name="P:WinterRose.ProgressReporter.Message">
-            <summary>
-            a descriptive message 
-            </summary>
-        </member>
-        <member name="M:WinterRose.ProgressReporter.op_Implicit(WinterRose.ProgressReporter)~System.String">
-            <summary>
-            Gets the message of progress reporter
-            </summary>
-            <param name="e"></param>
-        </member>
-        <member name="M:WinterRose.ProgressReporter.op_Implicit(WinterRose.ProgressReporter)~System.Double">
-            <summary>
-            get the persentage value of the progress reporter
-            </summary>
-            <param name="e"></param>
-        </member>
         <member name="T:WinterRose.SnowUtils">
             <summary>
             Suggestions for this class are welcome. please report them the the Author, <b>TheSnowOwl</b>
@@ -1256,6 +1393,11 @@
             </summary>
             <param name="action"></param>
             <param name="times"></param>
+        </member>
+        <member name="M:WinterRose.SnowUtils.Repeat(System.Action,System.Int32,System.Action{System.Single},System.Int32)">
+            <summary>
+            Repeats the given action the given amount of times. and invokes the callback method after the action has been repeated the given amount of times.
+            </summary>
         </member>
         <member name="M:WinterRose.SnowUtils.Repeat(System.Action{System.UInt64},System.UInt64)">
             <summary>
@@ -1295,56 +1437,71 @@
             <param name="count"></param>
             <returns>a new list that counts from 0 to the given count - 1</returns>
         </member>
-        <member name="T:WinterRose.SnowUtilsExtentions">
+        <member name="M:WinterRose.SnowUtils.ReverseOrder``1(System.Collections.Generic.List{``0})">
             <summary>
-            Suggestions for this class are welcome. please report them the the Author, <b>TheSnowOwl</b>
+            Creates a new list and populates it with the reversed order of the operated list
             </summary>
+            <typeparam name="T"></typeparam>
+            <param name="values"></param>
+            <returns>A new list with the items of the operated list reversed</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.IsUpper(System.Char)">
+        <member name="M:WinterRose.SnowUtils.Count(System.Collections.IEnumerable)">
+            <summary>
+            Counts the amount of items in the given list
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.SnowUtils.ToList(System.Range)">
+            <summary>
+            Converts the range to a list of integers
+            </summary>
+            <param name="range"></param>
+            <returns>the created list</returns>
+        </member>
+        <member name="M:WinterRose.SnowUtils.IsUpper(System.Char)">
             <summary>
             Indicates whether the specified character is catagorized as an uppercase letter
             </summary>
             <param name="c"></param>
             <returns>true if the given character is a uppercase letter, otherwise false</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.IsLower(System.Char)">
+        <member name="M:WinterRose.SnowUtils.IsLower(System.Char)">
             <summary>
             Indicates whether the specified character is catagorized as a lowercase letter
             </summary>
             <param name="c"></param>
             <returns>true if the given character is a lower case letter, otherwise false</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ToUpper(System.Char)">
+        <member name="M:WinterRose.SnowUtils.IsNumber(System.Char)">
+            <summary>
+            Indicates whether the specified character is catagorized as a number
+            </summary>
+            <param name="c"></param>
+            <returns>true if the given character is a number, otherwise false</returns>
+        </member>
+        <member name="M:WinterRose.SnowUtils.ToUpper(System.Char)">
             <summary>
             Conerts the given letter to its uppercase variant
             </summary>
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ToLower(System.Char)">
+        <member name="M:WinterRose.SnowUtils.ToLower(System.Char)">
             <summary>
             Converts the given letter to its lowercase variant
             </summary>
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.IsLetter(System.Char)">
+        <member name="M:WinterRose.SnowUtils.IsLetter(System.Char)">
             <summary>
             Indicates whether the given char is a alphabetical letter or not.
             </summary>
             <param name="c"></param>
             <returns></returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ConvertAll``2(System.Collections.Generic.List{``0})">
-            <summary>
-            Tries to converts all the items in the list to the given type using <see cref="M:WinterRose.TypeWorker.TryCastPrimitive``1(System.Object,``0@)"/>
-            </summary>
-            <typeparam name="T1"></typeparam>
-            <typeparam name="T2"></typeparam>
-            <param name="list"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Add``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.KeyValuePair{``0,``1})">
+        <member name="M:WinterRose.SnowUtils.Add``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.KeyValuePair{``0,``1})">
             <summary>
             Adds the given Pair to the Dictionary
             </summary>
@@ -1353,13 +1510,13 @@
             <param name="dict"></param>
             <param name="pair"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.MakeString(System.Char[])">
+        <member name="M:WinterRose.SnowUtils.MakeString(System.Char[])">
             <summary>
             Sets all the letters in the char array into one single string
             </summary>
             <param name="chars"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.GetRelativeTime(System.DateTime,System.DateTime)">
+        <member name="M:WinterRose.SnowUtils.GetRelativeTime(System.DateTime,System.DateTime)">
             <summary>
             Calculates the relative time between the given times
             </summary>
@@ -1367,7 +1524,7 @@
             <param name="target"></param>
             <returns>Timespan containing the relative time between the two and whether this time is in the past or not</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Split``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+        <member name="M:WinterRose.SnowUtils.Split``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
             <summary>
             Splits the given IEnumerable into the given amount of parts. does not keep the order of the enumerable. 
             </summary>
@@ -1376,43 +1533,27 @@
             <param name="parts"></param>
             <returns>a list of all parts</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+        <member name="M:WinterRose.SnowUtils.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
             <summary>
             determains the most efficient way to create smaller groups of the given IEnumberable and handles upon that conclution but never goes above the max alowed partitions. if put back together into one list it retains the same order (should you handle the items from the first split list to the last)
             </summary>
             <typeparam name="T"></typeparam>
             <returns>an array of lists that has elements of the IEnumberable operated on split between them</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Count``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Counts the number of items present in the enumerable
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="enumerable"></param>
-            <returns>The number of items in the enumerable</returns>
-        </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Count(System.Collections.IEnumerable)">
-            <summary>
-            Counts the number of items present in the enumerable
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="enumerable"></param>
-             <returns>The number of items in the enumerable</returns>
-        </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.NextAvalible(System.Collections.Generic.List{System.Int32})">
+        <member name="M:WinterRose.SnowUtils.NextAvalible(System.Collections.Generic.List{System.Int32})">
             <summary>
             finds the first unused int32 from a list
             </summary>
             <param name="list"></param>
             <returns>the next avalible int32 from a list of int32</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.NextAvalible``1(System.Collections.Generic.Dictionary{System.Int32,``0})">
+        <member name="M:WinterRose.SnowUtils.NextAvalible``1(System.Collections.Generic.Dictionary{System.Int32,``0})">
             <summary>
             finds the first unused integer from a Dictionary which has a Key value of type Int32
             </summary>
             <returns>the next avalible interger from the Dictionary of Keys of type int32</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Repeat``1(``0,System.Action{``0},System.Int32)">
+        <member name="M:WinterRose.SnowUtils.Repeat``1(``0,System.Action{``0},System.Int32)">
             <summary>
             Repeats the given action the given amount of times.
             </summary>
@@ -1421,7 +1562,7 @@
             <param name="action"></param>
             <param name="times"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Repeat``1(``0,System.Action{``0},System.Func{System.Boolean},System.Boolean)">
+        <member name="M:WinterRose.SnowUtils.Repeat``1(``0,System.Action{``0},System.Func{System.Boolean},System.Boolean)">
             <summary>
             Repeats the given action until the condition is met. or if 'UntilConditionIsTrue' is set to true, it repeats the action while the condition is met
             </summary>
@@ -1429,7 +1570,7 @@
             <param name="source"></param>
             <param name="action"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Foreach``1(``0[],System.Action{``0})">
+        <member name="M:WinterRose.SnowUtils.Foreach``1(``0[],System.Action{``0})">
             <summary>
             executes the given action on every entry in the array
             </summary>
@@ -1437,7 +1578,7 @@
             <param name="array"></param>
             <param name="action"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Foreach``1(``0[],System.Action{``0,System.Int32})">
+        <member name="M:WinterRose.SnowUtils.Foreach``1(``0[],System.Action{``0,System.Int32})">
             <summary>
             executes the given action on every entry in the array. passes the iteration int as the second argument.
             </summary>
@@ -1445,14 +1586,14 @@
             <param name="array"></param>
             <param name="action"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Foreach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+        <member name="M:WinterRose.SnowUtils.Foreach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
             <summary>
             executes the given action on every entry in the Enumerable
             </summary>
             <typeparam name="T"></typeparam>
             <param name="action"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ForeachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+        <member name="M:WinterRose.SnowUtils.ForeachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
             <summary>
             executes the given action on every entry in the Enumerable
             </summary>
@@ -1460,7 +1601,7 @@
             <param name="action"></param>
             <returns>the list where the given action is preformed on all entries</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.RepeatAsync``1(``0,System.Action{``0},System.Int32)">
+        <member name="M:WinterRose.SnowUtils.RepeatAsync``1(``0,System.Action{``0},System.Int32)">
             <summary>
             Repeats the given action the given amount of times.
             </summary>
@@ -1469,12 +1610,12 @@
             <param name="action"></param>
             <param name="times"></param>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.RepeatAsync``1(``0,System.Action{``0},System.Func{System.Boolean},System.Boolean)">
+        <member name="M:WinterRose.SnowUtils.RepeatAsync``1(``0,System.Action{``0},System.Func{System.Boolean},System.Boolean)">
             <summary>
             Repeats the given action until the stop condition is met.
             </summary>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ForeachAsync``1(``0[],System.Action{``0})">
+        <member name="M:WinterRose.SnowUtils.ForeachAsync``1(``0[],System.Action{``0})">
             <summary>
             executes the given action on every entry in the array
             </summary>
@@ -1483,7 +1624,7 @@
             <param name="action"></param>
             <returns>the array where the action has executed on all entries</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Foreach``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0})">
+        <member name="M:WinterRose.SnowUtils.Foreach``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0})">
             <summary>
             executes the given action on every entry in the Enumerable
             </summary>
@@ -1491,7 +1632,7 @@
             <param name="action"></param>
             <returns>the list where the given action is preformed on all entries</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.Foreach``1(``0[],System.Func{``0,``0})">
+        <member name="M:WinterRose.SnowUtils.Foreach``1(``0[],System.Func{``0,``0})">
             <summary>
             executes the given action on every entry in the array
             </summary>
@@ -1500,7 +1641,7 @@
             <param name="action"></param>
             <returns>the array where the action has executed on all entries</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.For``1(``0[],System.Func{``0,``0})">
+        <member name="M:WinterRose.SnowUtils.For``1(``0[],System.Func{``0,``0})">
             <summary>
             executes an action on every index of the array. index can be null, the default of the type will be used for this iteration then
             </summary>
@@ -1509,13 +1650,13 @@
             <param name="action"></param>
             <returns>the array where the action has executed for all indexes</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ForeachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0})">
+        <member name="M:WinterRose.SnowUtils.ForeachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0})">
             <summary>
             executes the given action on every entry in the Enumerable
             </summary>
             <returns>the list where the given action is preformed on all entries</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ForeachAsync``1(``0[],System.Func{``0,``0})">
+        <member name="M:WinterRose.SnowUtils.ForeachAsync``1(``0[],System.Func{``0,``0})">
             <summary>
             executes the given action on every entry in the array
             </summary>
@@ -1524,7 +1665,7 @@
             <param name="action"></param>
             <returns>the array where the action has executed on all entries</returns>
         </member>
-        <member name="M:WinterRose.SnowUtilsExtentions.ForAsync``1(``0[],System.Func{``0,``0})">
+        <member name="M:WinterRose.SnowUtils.ForAsync``1(``0[],System.Func{``0,``0})">
             <summary>
             executes an action on every index of the array. index can be null, the default of the type will be used for this iteration then
             </summary>
@@ -1707,6 +1848,60 @@
             Gets thrown when a linked method for events when serializing is not found
             </summary>
         </member>
+        <member name="T:WinterRose.WorkDistributor">
+            <summary>
+            Provides an easy way to distribute work across multiple threads
+            </summary>
+        </member>
+        <member name="P:WinterRose.WorkDistributor.FunctionCount">
+            <summary>
+            Gets the amount of functions added to the WorkDistributor
+            </summary>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance of the WorkDistributor class
+            </summary>
+            <param name="threads"></param>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.AddFunction(System.Action)">
+            <summary>
+            Adds the given function with no arguments or return type to the WorkDistributor
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.Clear">
+            <summary>
+            Removes all functions tied to this WorkDistributor
+            </summary>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.RemoveFunction(System.Action)">
+            <summary>
+            Removes the given function from the WorkDistributor
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.Start">
+            <summary>
+            Calls all the functions added to the WorkDistributor on the allowed amount of threads. <strong>this does NOT respect the order of the given functions</strong>
+            </summary>
+            <returns>An 32 bit signed integer conveying information on how many tasks failed</returns>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.Start(System.Int32)">
+            <summary>
+            Calls all the functions added to the WorkDistributor on the allowed amount of threads.  <strong>this does NOT respect the order of the given functions</strong>
+            </summary>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.StartAsync">
+            <summary>
+            Asynchronously calls all the functions added to the WorkDistributor on the allowed amount of threads.  <strong>this does NOT respect the order of the given functions</strong>
+            </summary>
+        </member>
+        <member name="M:WinterRose.WorkDistributor.StartAsync(System.Int32)">
+            <summary>
+            Asynchronously calls all the functions added to the WorkDistributor on the allowed amount of threads.  <strong>this does NOT respect the order of the given functions</strong>
+            </summary>
+        </member>
         <member name="T:WinterRose.Vectors.Vector2">
             <summary>
             An object that represents a point in 2D worldspace
@@ -1722,14 +1917,39 @@
             Vector2 coördinate
             </summary>
         </member>
+        <member name="F:WinterRose.Vectors.Vector2.Zero">
+            <summary>
+            Defines a Vector2 with X and Y values at 0
+            </summary>
+        </member>
         <member name="M:WinterRose.Vectors.Vector2.#ctor(System.Single,System.Single)">
             <summary>
             poppulated constructor
             </summary>
         </member>
+        <member name="M:WinterRose.Vectors.Vector2.#ctor(System.Double,System.Double)">
+            <summary>
+            Creates a new instance of this Vector2 casting the doubles to floats
+            </summary>
+        </member>
         <member name="M:WinterRose.Vectors.Vector2.#ctor">
             <summary>
             empty constructor
+            </summary>
+        </member>
+        <member name="P:WinterRose.Vectors.Vector2.Magnitude">
+            <summary>
+            Gets the magnitude of this vector
+            </summary>
+        </member>
+        <member name="P:WinterRose.Vectors.Vector2.Normalized">
+            <summary>
+            Gets the normalized vector
+            </summary>
+        </member>
+        <member name="P:WinterRose.Vectors.Vector2.Length">
+            <summary>
+            Gets the length of the vector
             </summary>
         </member>
         <member name="M:WinterRose.Vectors.Vector2.ToString">
@@ -1749,6 +1969,68 @@
             gets the distance between 2 vector2 points
             </summary>
             <returns>a float with the distance between the 2 points in a straight line</returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Normalize">
+            <summary>
+            Normalizes the vector
+            </summary>
+            <returns>The nomalized vector</returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Normalize(WinterRose.Vectors.Vector2)">
+            <summary>
+            Normalizes the given vector
+            </summary>
+            <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.GetLength">
+            <summary>
+            Gets the length of this vector
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.GetLengthSquared">
+            <summary>
+            Gets the length of this vector squared
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Dot(WinterRose.Vectors.Vector2,WinterRose.Vectors.Vector2)">
+            <summary>
+            Creates a dot product with the given vectors
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Lerp(WinterRose.Vectors.Vector2,WinterRose.Vectors.Vector2,System.Single)">
+            <summary>
+            Lerps the given vectors to the given amount of time
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="time"></param>
+            <returns>The lerped Vector2</returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Clone">
+            <summary>
+            Clones this vector2
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Equals(WinterRose.Vectors.Vector2)">
+            <summary>
+            Checks if the given vector2 is equals to this one
+            </summary>
+            <param name="other"></param>
+            <returns>true if it is, otherwise false</returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.Equals(System.Object)">
+            <summary>
+            Checks if the given vector2 is equals to this one
+            </summary>
+            <param name="other"></param>
+            <returns>true if it is, otherwise false</returns>
         </member>
         <member name="M:WinterRose.Vectors.Vector2.op_Addition(WinterRose.Vectors.Vector2,WinterRose.Vectors.Vector2)">
             <summary>
@@ -1831,6 +2113,14 @@
         <member name="M:WinterRose.Vectors.Vector2.op_LessThanOrEqual(WinterRose.Vectors.Vector2,WinterRose.Vectors.Vector2)">
             <summary></summary>
             <returns>true if right value is greater than, or equal the left value</returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.op_Equality(WinterRose.Vectors.Vector2,WinterRose.Vectors.Vector2)">
+            <summary></summary>
+            <returns>Returns true if <paramref name="v1"/> its values are identical to <paramref name="v2"/></returns>
+        </member>
+        <member name="M:WinterRose.Vectors.Vector2.op_Inequality(WinterRose.Vectors.Vector2,WinterRose.Vectors.Vector2)">
+            <summary></summary>
+            <returns>Returns true if <paramref name="v1"/> its values are identical to <paramref name="v2"/></returns>
         </member>
         <member name="T:WinterRose.Vectors.Vector3">
             <summary>
@@ -1967,32 +2257,42 @@
             <summary></summary>
             <returns>true if right value is greater than, or equal the left value</returns>
         </member>
-        <member name="T:WinterRose.WIP.Encryption.Encrypter">
+        <member name="T:WinterRose.WIP.Encryption.Encryptor">
             <summary>
-            Encrypt strings with special incrytion settings
+            Provides a methods to encrypt and decrypt messages.
             </summary>
         </member>
-        <member name="F:WinterRose.WIP.Encryption.Encrypter.SupportedCharacters">
+        <member name="F:WinterRose.WIP.Encryption.Encryptor.KEYSIZE">
             <summary>
-            Represents a string literal that shows all supported characters by the encrypter
+            The size of the keys when using the encrypter
             </summary>
         </member>
-        <member name="M:WinterRose.WIP.Encryption.Encrypter.#ctor(WinterRose.WIP.Encryption.EncrypterSetting,WinterRose.WIP.Encryption.EncrypterSetting,WinterRose.WIP.Encryption.EncrypterSetting)">
+        <member name="T:WinterRose.WIP.Encryption.StringScrambler">
             <summary>
-            Creates a new instance of the Encrypter class
+            Scrambles strings with special settings settings
+            </summary>
+        </member>
+        <member name="F:WinterRose.WIP.Encryption.StringScrambler.SupportedCharacters">
+            <summary>
+            Represents a string literal that shows all supported characters by the scrambler
+            </summary>
+        </member>
+        <member name="M:WinterRose.WIP.Encryption.StringScrambler.#ctor(WinterRose.WIP.Encryption.ScramblerSetting,WinterRose.WIP.Encryption.ScramblerSetting,WinterRose.WIP.Encryption.ScramblerSetting)">
+            <summary>
+            Creates a new instance of the Encryptor class
             </summary>
             <param name="setting1"></param>
             <param name="setting2"></param>
             <param name="setting3"></param>
         </member>
-        <member name="M:WinterRose.WIP.Encryption.Encrypter.Encrypt(System.String)">
+        <member name="M:WinterRose.WIP.Encryption.StringScrambler.Encrypt(System.String)">
             <summary>
             encrypts the given message.
             </summary>
             <returns>The resulting string from the encrypting</returns>
             <param name="message"></param>
         </member>
-        <member name="M:WinterRose.WIP.Encryption.Encrypter.Encrypt(System.String,System.Action{WinterRose.ProgressReporter},System.Int32)">
+        <member name="M:WinterRose.WIP.Encryption.StringScrambler.Encrypt(System.String,System.Action{WinterRose.ProgressReporter},System.Int32)">
             <summary>
             encrypts the given message.
             </summary>
@@ -2001,14 +2301,14 @@
             <param name="reportAt"></param>
             <returns>The resulting string from the encrypting</returns>
         </member>
-        <member name="M:WinterRose.WIP.Encryption.Encrypter.Decrypt(System.String)">
+        <member name="M:WinterRose.WIP.Encryption.StringScrambler.Decrypt(System.String)">
             <summary>
             Decrypts the given message
             </summary>
             <param name="message"></param>
             <returns>the resulting string from the decryption</returns>
         </member>
-        <member name="M:WinterRose.WIP.Encryption.Encrypter.Decrypt(System.String,System.Action{WinterRose.ProgressReporter},System.Int32)">
+        <member name="M:WinterRose.WIP.Encryption.StringScrambler.Decrypt(System.String,System.Action{WinterRose.ProgressReporter},System.Int32)">
             <summary>
             Decrypts the given message
             </summary>
@@ -2017,12 +2317,12 @@
             <param name="reportAt"></param>
             <returns>the resulting string from the decryption</returns>
         </member>
-        <member name="T:WinterRose.WIP.Encryption.EncrypterSetting">
+        <member name="T:WinterRose.WIP.Encryption.ScramblerSetting">
             <summary>
-            this class is part of the Encryption, 
+            this struct is part of the Scrambling. It is used to store the settings for the Scrambling
             </summary>
         </member>
-        <member name="M:WinterRose.WIP.Encryption.EncrypterSetting.#ctor(WinterRose.WIP.Encryption.ScrambleConfiguration,System.Int32,System.Int32)">
+        <member name="M:WinterRose.WIP.Encryption.ScramblerSetting.#ctor(WinterRose.WIP.Encryption.ScrambleConfiguration,System.Int32,System.Int32)">
             <summary>
             creates a new instance of the Rotor class
             </summary>
@@ -2037,27 +2337,27 @@
         </member>
         <member name="F:WinterRose.WIP.Encryption.ScrambleConfiguration.I">
             <summary>
-            Represents the first configuration of the rotors
+            Represents the first configuration
             </summary>
         </member>
         <member name="F:WinterRose.WIP.Encryption.ScrambleConfiguration.II">
             <summary>
-            Represents the second configuration of the rotors
+            Represents the second configuratio
             </summary>
         </member>
         <member name="F:WinterRose.WIP.Encryption.ScrambleConfiguration.III">
             <summary>
-            Represents the third configuration of the rotors
+            Represents the third configuration
             </summary>
         </member>
         <member name="F:WinterRose.WIP.Encryption.ScrambleConfiguration.IV">
             <summary>
-            Represents the fourth configuration of the rotors
+            Represents the fourth configuratio
             </summary>
         </member>
         <member name="F:WinterRose.WIP.Encryption.ScrambleConfiguration.V">
             <summary>
-            Represents the fifth configuration of the rotors
+            Represents the fifth configuration
             </summary>
         </member>
         <member name="T:WinterRose.WIP.RedisDatabase.GetRedisScript">
@@ -2070,310 +2370,9 @@
             Gets the complete script that was once in this namespace, due to complications this has been temporarily resolved with this. it will be fixed in the future
             </summary>
         </member>
-        <member name="T:WinterRose.WorkDistributor">
+        <member name="T:WinterRose.WIP.ReflectionTests.ReflectionTests">
             <summary>
-            Provides an easy way to distribute work across multiple threads
-            </summary>
-        </member>
-        <member name="P:WinterRose.WorkDistributor.FunctionCount">
-            <summary>
-            Gets the amount of functions added to the WorkDistributor
-            </summary>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.#ctor(System.Int32)">
-            <summary>
-            Creates a new instance of the WorkDistributor class
-            </summary>
-            <param name="threads"></param>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.AddFunction(System.Action)">
-            <summary>
-            Adds the given function with no arguments or return type to the WorkDistributor
-            </summary>
-            <param name="action"></param>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.Clear">
-            <summary>
-            Removes all functions tied to this WorkDistributor
-            </summary>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.RemoveFunction(System.Action)">
-            <summary>
-            Removes the given function from the WorkDistributor
-            </summary>
-            <param name="action"></param>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.Start">
-            <summary>
-            Calls all the functions added to the WorkDistributor on the allowed amount of threads. <strong>this does NOT respect the order of the given functions</strong>
-            </summary>
-            <returns>An 32 bit signed integer conveying information on how many tasks failed</returns>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.Start(System.Int32)">
-            <summary>
-            Calls all the functions added to the WorkDistributor on the allowed amount of threads.  <strong>this does NOT respect the order of the given functions</strong>
-            </summary>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.StartAsync">
-            <summary>
-            Asynchronously calls all the functions added to the WorkDistributor on the allowed amount of threads.  <strong>this does NOT respect the order of the given functions</strong>
-            </summary>
-        </member>
-        <member name="M:WinterRose.WorkDistributor.StartAsync(System.Int32)">
-            <summary>
-            Asynchronously calls all the functions added to the WorkDistributor on the allowed amount of threads.  <strong>this does NOT respect the order of the given functions</strong>
-            </summary>
-        </member>
-        <member name="T:Redis.RedisAnswer`1">
-            <summary>
-            Provides an easy way of telling the result of the Redis response
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Redis.RedisAnswer`1.Value">
-            <summary>
-            The value that was returned by the Redis server
-            </summary>
-        </member>
-        <member name="P:Redis.RedisAnswer`1.HasValue">
-            <summary>
-            Indicates if this answer has a valid value
-            </summary>
-        </member>
-        <member name="M:Redis.RedisAnswer`1.op_Implicit(Redis.RedisAnswer{`0})~`0">
-            <summary>
-            Implicidly converts the RedisAnswer to its value
-            </summary>
-            <param name="answer"></param>
-        </member>
-        <member name="T:Redis.RedisConnection">
-            <summary>
-            Allows for connection to Redis and manipulation of data within the connected database
-            </summary>
-        </member>
-        <member name="P:Redis.RedisConnection.IsConnected">
-            <summary>
-            Gets whether there is a valid connection to Redis
-            </summary>
-        </member>
-        <member name="M:Redis.RedisConnection.#ctor">
-            <summary>
-            Creates an instance of this class. This constructor does not automatically connect to a Redis server.
-            </summary>
-        </member>
-        <member name="M:Redis.RedisConnection.#ctor(System.String,System.Int32)">
-            <summary>
-            Creates an instance if the RedisConnection class, and tries to establish a connection with the given host and port
-            </summary>
-            <param name="host"></param>
-            <param name="port"></param>
-        </member>
-        <member name="M:Redis.RedisConnection.#ctor(System.String,System.Int32,System.String)">
-            <summary>
-            Creates an instance if the RedisConnection class, and tries to establish a connection with the given host and port. then if the connection established successfully, attempts to authenticate with the given password
-            </summary>
-            <param name="host"></param>
-            <param name="port"></param>
-        </member>
-        <member name="M:Redis.RedisConnection.MakeConnection(System.String,System.Int32)">
-            <summary>
-            Attempts to make a connection to Redis with the given host and port
-            </summary>
-            <param name="host"></param>
-            <param name="port"></param>
-            <returns>A RedisAnswer containing a bool of true if the connection was established, or false if it was not</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.EndConnection">
-            <summary>
-            Ends a connection to Redis if there is one
-            </summary>
-        </member>
-        <member name="M:Redis.RedisConnection.DeleteKeys``1(``0[])">
-            <summary>
-            Deletes the given keys from the database
-            </summary>
-            <typeparam name="K"></typeparam>
-            <param name="keys"></param>
-            <returns>The number of keys successfully deleted</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.GetKeysByPattern(System.String)">
-            <summary>
-            Gets the keys that match the pattern. Use " <b>*</b> " to get all keys
-            </summary>
-            <param name="pattern"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Redis.RedisConnection.GetRandomKey">
-            <summary>
-            Gets a random key from Redis
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Redis.RedisConnection.GetKeyTimeout``1(``0)">
-            <summary>
-            Returns the timeout for the specified key in seconds
-            </summary>
-        </member>
-        <member name="M:Redis.RedisConnection.KeyExists``1(``0)">
-            <summary>
-            Checks if the given key exists within the database
-            </summary>
-            <returns>True if the key exists, else false</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.RenameKey``2(``0,``1)">
-            <summary>
-            Renames the given key to the specified new name
-            </summary>
-            <typeparam name="K1"></typeparam>
-            <typeparam name="K2"></typeparam>
-            <param name="key"></param>
-            <param name="newKey"></param>
-            <returns>StatusCode.OK if succeeded, otherwise StatusCode.Faulted</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.GetKeyType``1(``0)">
-            <summary>
-            Gets the type of the key
-            </summary>
-            <typeparam name="K"></typeparam>
-            <param name="key"></param>
-            <returns>the <see cref="T:Redis.Utils.KeyType"/> of the given key</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.SetKeyExpiry``1(``0,System.Int32)">
-            <summary>
-            Sets the expiration time of the given key at the given amount of seconds
-            </summary>
-            <typeparam name="K"></typeparam>
-            <param name="key"></param>
-            <param name="timeoutInSeconds"></param>
-            <returns>true if the operation succeeded, false if not</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.RemoveTimeout``1(``0)">
-            <summary>
-            Removes the timeout of the given key
-            </summary>
-            <typeparam name="K"></typeparam>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Redis.RedisConnection.Get``2(``1)">
-            <summary>
-            Gets the value at the given key
-            </summary>
-            <returns>The value at the key</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.Set``2(``0,``1)">
-            <summary>
-            Sets the given key to the given value
-            </summary>
-            <returns><see cref="F:Redis.StatusCode.OK"/> if the operation succeeded, else <see cref="F:Redis.StatusCode.Faulted"/></returns>
-        </member>
-        <member name="M:Redis.RedisConnection.Append``2(``0,``1)">
-            <summary>
-            Appends the <paramref name="val"/> to the specified key's existing value.
-            </summary>
-            <returns>The length of the final apended string.</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.GetSet``3(``1,``2)">
-            <summary>
-            Gets the value of the given key, then overrides it with the new value
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="K"></typeparam>
-            <typeparam name="V"></typeparam>
-            <param name="key"></param>
-            <param name="val"></param>
-            <returns>the value that was found</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.GetMultiple``2(``1[])">
-            <summary>
-            Gets the values of multiple keys at the same time
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="K"></typeparam>
-            <param name="keys"></param>
-            <returns>an array of all the values</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.SetKeyWithExpiry``2(``0,System.Int32,``1)">
-            <summary>
-            Sets the key with an immidiate expire time of the specified number of seconds
-            </summary>
-            <returns><see cref="F:Redis.StatusCode.OK"/> if succeeded, else <see cref="F:Redis.StatusCode.Faulted"/></returns>
-        </member>
-        <member name="M:Redis.RedisConnection.Dispose">
-            <summary>
-            Disposes this connection by closing it.
-            </summary>
-        </member>
-        <member name="M:Redis.RedisConnection.Authenticate(System.String)">
-            <summary>
-            Authenticates the established connection
-            </summary>
-            <param name="password"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Redis.RedisConnection.Ping">
-            <summary>
-            Pings the database and checks whether it is accessable
-            </summary>
-            <returns><see cref="F:Redis.StatusCode.Pong"/> if the database is reached, else <see cref="F:Redis.StatusCode.Undefined"/> with a <see cref="P:Redis.RedisAnswer`1.HasValue"/> set to false</returns>
-        </member>
-        <member name="M:Redis.RedisConnection.Close">
-            <summary>
-            Connection is closed as soon as all the pending replies are written to the client.
-            </summary>
-        </member>
-        <member name="M:Redis.RedisConnection.SetExpireAt``1(``0,System.Int32)">
-            <summary>
-            Sets the expiry for the specified key.
-            timeout is specified in unix timestamp i.e. seconds since January 1, 1970.
-            </summary>
-            <returns>
-            True if the operation succeeded, false if not
-            </returns>
-        </member>
-        <member name="M:Redis.RedisConnection.ListPopLeftBlocking(System.Int32,System.String[])">
-            <summary>
-            Returns the left most element of the first non-empty list encountered.
-            If all of the specified lists are empty, the connection is blocked until an element
-            is inserted using LPUSH or RPUSH or timeout expires.
-            A timeout of zero can be used to block indefinitely.
-            </summary>
-            <returns>
-            The pop left blocking.
-            </returns>
-            <param name='timeoutSeconds'>
-            Timeout seconds.
-            </param>
-            <param name='keys'>
-            Keys.
-            </param>
-        </member>
-        <member name="M:Redis.RedisConnection.ListPopRightBlocking(System.Int32,System.String[])">
-            <summary>
-            Returns the right most element of the first non-empty list encountered.
-            If all of the specified lists are empty, the connection is blocked until an element
-            is inserted using LPUSH or RPUSH or timeout expires.
-            A timeout of zero can be used to block indefinitely.
-            </summary>
-            <returns>
-            The pop right blocking.
-            </returns>
-            <param name='timeoutSeconds'>
-            Timeout seconds.
-            </param>
-            <param name='keys'>
-            Keys.
-            </param>
-        </member>
-        <member name="M:Redis.RedisConnection.Flush">
-            <summary>
-            <b>WARNING</b>. This will delete <b><em>every</em></b> entry within your database. Use with caution
-            </summary>
-            <returns><see cref="F:Redis.StatusCode.OK"/> if the operation succeeded. else <see cref="F:Redis.StatusCode.Faulted"/></returns>
-        </member>
-        <member name="F:Redis.StatusCode.Pong">
-            <summary>
-            Gets returned when <see cref="M:Redis.RedisConnection.Ping"></see> is called and a connection is established
+            Random tests for reflection.
             </summary>
         </member>
     </members>

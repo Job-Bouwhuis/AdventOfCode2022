@@ -52,20 +52,20 @@
 //            Range area1 = new(TypeWorker.CastPrimitive<int>(STRINGrange1[0]), TypeWorker.CastPrimitive<int>(STRINGrange1[1]));
 //            Range area2 = new(TypeWorker.CastPrimitive<int>(STRINGrange2[0]), TypeWorker.CastPrimitive<int>(STRINGrange2[1]));
 
-//            foreach (int i in area1.Min..(area1.Max+1))
+//            foreach (int i in area1.Min..(area1.Max + 1))
 //            {
-//                foreach (int j in area2.Min..(area2.Max+1))
+//                foreach (int j in area2.Min..(area2.Max + 1))
 //                {
 //                    if (i == j)
 //                    {
 //                        overlaps++;
 //                        goto EndLoop;
 //                    }
-                        
+
 //                }
 //            }
 //        EndLoop:;
-            
+
 //        }
 
 //        return overlaps;

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Scripts;
 
+[Puzzle(6, "CommunicationArray with the elves on expedition")]
 internal class Day6Puzzle : IMyPuzzle
 {
     string input;
-    public Day6Puzzle()
+    public void Setup()
     {
         input = FileManager.Read("Inputs/Day6.txt")!;
     }

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Scripts
 {
+    [Puzzle(5, "Elven camp crate stacking")]
     internal class Day5Puzzle : IMyPuzzle
     {
-        readonly List<List<char>> stacks = new();
-        readonly string[] instructions;
+        List<List<char>> stacks = new();
+        string[] instructions;
 
-        public Day5Puzzle()
+        public void Setup()
         {
             GetStacks();
             instructions = FileManager.ReadAllLines("Inputs/Day5.txt").ToStringArray();

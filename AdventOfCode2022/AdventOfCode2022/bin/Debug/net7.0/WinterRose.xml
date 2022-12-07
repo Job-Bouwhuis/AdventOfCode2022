@@ -1762,6 +1762,13 @@
             </summary>
             <returns>The type matching the given name if it is found within the given Assembly. if no matching type is found it returns null</returns>
         </member>
+        <member name="M:WinterRose.TypeWorker.FindTypesWithAttribute``1">
+            <summary>
+            Finds all types that have the given attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>An array of types that have the given attribute. if no type has the given attribute it returns an empty array</returns>
+        </member>
         <member name="M:WinterRose.TypeWorker.FindType(System.String,System.String,System.String)">
             <summary>
             Searches for the Type matching to the given name. can pass the assembly as filter for the search. be sure to just give the name of the assembly

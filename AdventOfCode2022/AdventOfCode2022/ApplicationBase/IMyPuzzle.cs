@@ -8,6 +8,7 @@ namespace AdventOfCode2022
 {
     public interface IMyPuzzle
     {
+        public void Setup();
         public object? SolveFirst();
         public object? SolveSecond();
     }

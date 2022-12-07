@@ -2,23 +2,25 @@
 
 namespace AdventOfCode2022.Scripts;
 
+[Puzzle(2, "Rock Paper Scissors")]
 public class Day2Puzzle : IMyPuzzle
 {
     string[] input;
 
-        /*
-        0 if lost
-        3 for draw
-        6 for win
+    /*
+    0 if lost
+    3 for draw
+    6 for win
 
-        rock is 1
-        paper is 2
-        scisors is 3
+    rock is 1
+    paper is 2
+    scisors is 3
 
-        the sum is the total score of a round
-        */
+    the sum is the total score of a round
+    */
 
-    public Day2Puzzle()
+
+    public void Setup()
     {
         input = FileManager.ReadAllLines("Inputs/Day2.txt").ToStringArray();
     }
@@ -155,4 +157,5 @@ public class Day2Puzzle : IMyPuzzle
 
         return GameState.Draw;
     }
+
 }

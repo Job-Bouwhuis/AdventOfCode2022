@@ -2,9 +2,14 @@
 
 namespace AdventOfCode2022.Scripts;
 
+[Puzzle(1, "Elven food")]
 public class Day1Puzzle : IMyPuzzle
 {
     private List<int> elves = new();
+
+    public void Setup()
+    {
+    }
 
     public object? SolveFirst()
     {

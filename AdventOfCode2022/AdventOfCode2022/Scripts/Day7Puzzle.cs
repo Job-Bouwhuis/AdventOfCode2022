@@ -8,14 +8,18 @@ using WinterRose.ConsoleExtentions;
 
 namespace AdventOfCode2022.Scripts
 {
+    [Puzzle(7, "Directory Tree. searching for files to cleanup for update")]
     internal class Day7Puzzle : IMyPuzzle
     {
         Dictionary<string, int> largestfiles = new();
         string[] input;
         public const int MAXSTORAGE = 70000000;
         public const int UPDATESIZE = 30000000;
+        static Directory root = new("Root", null);
+        MutableString currentPath = "";
+        Directory currentDir = root;
 
-        public Day7Puzzle()
+        public void Setup()
         {
             input = FileManager.ReadAllLines("Inputs/Day7.txt").ToStringArray();
 
@@ -87,10 +91,6 @@ namespace AdventOfCode2022.Scripts
             }
             Console.WriteLine("Computing Puzzle Answer...");
         }
-
-        static Directory root = new("Root", null);
-        MutableString currentPath = "";
-        Directory currentDir = root;
 
         public object? SolveFirst()
         {

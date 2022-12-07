@@ -1,12 +1,13 @@
 ﻿namespace AdventOfCode2022.Scripts;
 
+[Puzzle(3, "Elven Expedition backpack ordering")]
 public class Day3Puzzle : IMyPuzzle
 {
     public string[] input;
 
-    public Day3Puzzle()
+    public void Setup()
     {
-        input = FileManager.ReadAllLines("Inputs/day3.txt").ToStringArray();
+        input = FileManager.ReadAllLines("Inputs/Day3.txt").ToStringArray();
     }
     public object? SolveFirst()
     {

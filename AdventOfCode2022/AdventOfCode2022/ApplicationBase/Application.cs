@@ -86,7 +86,7 @@ namespace AdventOfCode2022
         {
             if (puzzle is null)
             {
-                string settings = FileManager.Read("Settings.config");
+                string settings = FileManager.Read("Settings.config")!;
                 int day = TypeWorker.CastPrimitive<int>(settings);
                 GetPuzzle(day);
             }

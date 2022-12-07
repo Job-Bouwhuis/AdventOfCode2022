@@ -1,12 +1,8 @@
-﻿using WinterRose.FileManagement;
-
-namespace AdventOfCode2022.Scripts;
+﻿namespace AdventOfCode2022.Scripts;
 
 [Puzzle(2, "Rock Paper Scissors")]
 public class Day2Puzzle : IMyPuzzle
 {
-    string[] input;
-
     /*
     0 if lost
     3 for draw
@@ -18,13 +14,11 @@ public class Day2Puzzle : IMyPuzzle
 
     the sum is the total score of a round
     */
-
-
+    string[] input;
     public void Setup()
     {
         input = FileManager.ReadAllLines("Inputs/Day2.txt").ToStringArray();
     }
-
     public object? SolveFirst()
     {
         int score = 0;
@@ -46,7 +40,6 @@ public class Day2Puzzle : IMyPuzzle
 
         return score;
     }
-
     public object? SolveSecond()
     {
         int score = 0;
@@ -101,9 +94,6 @@ public class Day2Puzzle : IMyPuzzle
             return Move.Invalid;
         }
     }
-
-
-
     public enum Move
     {
         Rock = 1,
@@ -111,14 +101,12 @@ public class Day2Puzzle : IMyPuzzle
         Scissors,
         Invalid = 0
     }
-
     public enum GameState
     {
         Win,
         Lost,
         Draw
     }
-
     Move GetMove(char c)
     {
         return c.ToLower() switch
@@ -135,7 +123,6 @@ public class Day2Puzzle : IMyPuzzle
             _ => Move.Invalid
         };
     }
-
     GameState CheckState(Move a, Move b)
     {
         if (a == b)
@@ -157,5 +144,4 @@ public class Day2Puzzle : IMyPuzzle
 
         return GameState.Draw;
     }
-
 }

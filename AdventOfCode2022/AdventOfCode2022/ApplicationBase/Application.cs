@@ -1,6 +1,7 @@
 ﻿using TickSystem;
 using AdventOfCode2022.Scripts;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace AdventOfCode2022
 {
@@ -17,7 +18,7 @@ namespace AdventOfCode2022
             Console.Title = "Advent of Code 2022";
 
         }
-        
+
         public void TitleText()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -26,11 +27,9 @@ namespace AdventOfCode2022
             Console.WriteLine("\tBy Winter Rose");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        
+
         public void Setup()
         {
-            
-
             Console.WriteLine();
             Console.WriteLine("Loading puzzles...");
             Console.WriteLine();
@@ -46,13 +45,19 @@ namespace AdventOfCode2022
         {
             Console.Clear();
             TitleText();
-            
-            solvedPuzzle = true;
-            puzzle!.Setup();
-            object? resultFirst = puzzle.SolveFirst();
-            object? resultSecond = puzzle.SolveSecond();
 
-            Console.WriteLine($"\n\tPuzzle: {puzzle.GetType().Name}\n");
+            solvedPuzzle = true;
+            Stopwatch setupTime = Stopwatch.StartNew();
+            puzzle!.Setup();
+            setupTime.Stop();
+            Stopwatch firstSolve = Stopwatch.StartNew();
+            object? resultFirst = puzzle.SolveFirst();
+            firstSolve.Stop();
+            Stopwatch secondSolve = Stopwatch.StartNew();
+            object? resultSecond = puzzle.SolveSecond();
+            secondSolve.Stop();
+
+            Console.WriteLine($"\n\tPuzzle {puzzle.GetType().Name} results:\n");
             {
                 if (resultFirst is IEnumerable list and not string)
                 {
@@ -79,20 +84,37 @@ namespace AdventOfCode2022
                 else
                     Console.WriteLine($"\tResult of puzzle 2:\n\t{resultSecond}\n\n" ?? "Null was returned for the second resut.\n\n");
             }
+            Console.WriteLine("\n\n");
+            Console.WriteLine($"\tSetup took: {setupTime.ElapsedMilliseconds}ms");
+            Console.WriteLine($"\tFirst solve took: {firstSolve.ElapsedMilliseconds}ms");
+            Console.WriteLine($"\tSecond solve took: {secondSolve.ElapsedMilliseconds}ms");
+            Console.WriteLine("\n\n\tPress 'SPACE' to solve another puzzle, or 'ESC' to exit.");
         }
 
-
+        bool wait = true;
+        bool forceShowPuzzles = false;
+        int lastEnteredDayNumber = 0;
         public override void OnTick(Tick tick)
         {
             if (puzzle is null)
             {
                 string settings = FileManager.Read("Settings.config")!;
-                int day = TypeWorker.CastPrimitive<int>(settings);
-                GetPuzzle(day);
+                if (TypeWorker.TryCastPrimitive(settings.Trim(), out int day))
+                    GetPuzzle(day);
+                else
+                    throw new InvalidDataException("The settings file is corrupt. Please delete it and restart the application.");
             }
-            if (Input.GetKey(ConsoleKey.Escape, true, false))
+            if (!solvedPuzzle)
+                SolvePuzzle();
+            ConsoleKey? key = null;
+            if (!forceShowPuzzles)
+                if (wait)
+                    key = Console.ReadKey().Key;
+
+
+            if (key is not null && key == ConsoleKey.Escape)
                 Exit();
-            if (Input.GetKey(ConsoleKey.Spacebar, true, false))
+            if (!wait || key == ConsoleKey.Spacebar)
             {
                 Console.WriteLine("Give the number of the day you wish to visit:");
                 Console.Write("\tDay: ");
@@ -100,13 +122,36 @@ namespace AdventOfCode2022
                 int day = TypeWorker.CastPrimitive<int>(input);
 
                 GetPuzzle(day);
+                wait = true;
             }
-            if (!solvedPuzzle)
-                SolvePuzzle();
+            if (forceShowPuzzles || key is not null && key == ConsoleKey.Enter)
+            {
+                Console.Clear();
+                TitleText();
+                Console.WriteLine("\n\n");
+                if (forceShowPuzzles)
+                    Console.WriteLine($"There is no available puzzle for day {lastEnteredDayNumber}");
+                Console.WriteLine("Available Puzzles: ");
+
+                for (int i = 0; i < puzzles.Length; i++)
+                {
+                    Type puzzle = puzzles[i];
+                    if (i % 2 == 0)
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    else
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    
+                    PuzzleAttribute p = puzzle.GetCustomAttribute<PuzzleAttribute>()!;
+                    Console.WriteLine($"\t{p.day} - {p.description}");
+                }
+                Console.ForegroundColor = ConsoleColor.White;
+                wait = false;
+            }
         }
 
         public void GetPuzzle(int day)
         {
+            lastEnteredDayNumber = day;
             foreach (Type puzzle in puzzles)
             {
                 PuzzleAttribute p = puzzle.GetCustomAttribute<PuzzleAttribute>()!;
@@ -120,13 +165,11 @@ namespace AdventOfCode2022
                     return;
                 }
             }
-            throw new Exception($"No puzzle found for day {day}.");
+            forceShowPuzzles = true;
         }
 
         public override void OnExit()
         {
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
         }
     }
 }

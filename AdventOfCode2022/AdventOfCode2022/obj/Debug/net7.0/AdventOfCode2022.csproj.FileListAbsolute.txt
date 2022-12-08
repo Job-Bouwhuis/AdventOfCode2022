@@ -47,3 +47,4 @@ C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\
 C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\Day5.txt
 C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\Day6.txt
 C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\Day7.txt
+C:\GitRepositories\AdventOfCode2022\AdventOfCode2022\AdventOfCode2022\bin\Debug\net7.0\Inputs\Day8.txt

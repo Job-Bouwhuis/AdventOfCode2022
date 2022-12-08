@@ -89,7 +89,6 @@ namespace AdventOfCode2022.Scripts
                     currentDir.MakeFile(split[1], TypeWorker.CastPrimitive<int>(split[0]));
                 }
             }
-            Console.WriteLine("Computing Puzzle Answer...");
         }
 
         public object? SolveFirst()
@@ -172,6 +171,7 @@ namespace AdventOfCode2022.Scripts
     }
     public class Directory
     {
+        public int depth = 0;
         public string name;
         public Directory? Parent;
         public List<Directory> directories;
@@ -210,8 +210,11 @@ namespace AdventOfCode2022.Scripts
             return false;
         }
         public void MakeDir(string name)
-        {
-            directories.Add(new(name, this));
+        { 
+
+            Directory dir = new(name, this);
+            dir.depth = depth + 1;
+            directories.Add(dir);
         }
         public void MakeFile(string name, int size)
         {

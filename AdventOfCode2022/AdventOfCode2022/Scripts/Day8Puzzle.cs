@@ -11,6 +11,7 @@ internal class Day8Puzzle : IMyPuzzle
 
     public object? SolveFirst()
     {
+        Console.WriteLine("Computing first answer...");
         int visableTrees = 0;
         foreach (int i in input.Length)
         {
@@ -42,12 +43,13 @@ internal class Day8Puzzle : IMyPuzzle
             }
         }
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("\n\n");
+        Console.WriteLine("\n");
         return visableTrees;
     }
 
     public object? SolveSecond()
     {
+        Console.WriteLine("Computing second answer...");
         char[,] forest = new char[input.Length, input[0].Length];
         foreach (int i in input.Length)
         {
@@ -69,7 +71,7 @@ internal class Day8Puzzle : IMyPuzzle
 
                 if (i == 0 || j == 0 || j == forest.GetLength(1) - 1 || i == input.Length - 1)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(tree);
                     continue;
                 }
@@ -81,7 +83,7 @@ internal class Day8Puzzle : IMyPuzzle
                 
                 if (counted > 1)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(tree);
                 }
                 else

@@ -91,7 +91,7 @@ internal class Day8Puzzle : IMyPuzzle
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write(tree);
                 }
-                
+
                 int GetScenicScore()
                 {
                     int countRight = 0;

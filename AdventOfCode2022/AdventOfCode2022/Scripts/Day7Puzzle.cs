@@ -11,7 +11,6 @@ namespace AdventOfCode2022.Scripts
     [Puzzle(7, "Directory Tree. searching for files to cleanup for update")]
     internal class Day7Puzzle : IMyPuzzle
     {
-        Dictionary<string, int> largestfiles = new();
         string[] input;
         public const int MAXSTORAGE = 70000000;
         public const int UPDATESIZE = 30000000;
@@ -113,11 +112,9 @@ namespace AdventOfCode2022.Scripts
             int result = 0;
             int spaceFree = MAXSTORAGE - root.GetSize();
             int spaceRequired = UPDATESIZE - spaceFree;
-            bool e = spaceFree > MAXSTORAGE;
 
             List<Directory> temp = new();
             fillListofDir(temp, root);
-            temp.OrderByDescending(x => x.GetSize());
             var validOptions = temp.Where(x => x.GetSize() >= spaceRequired);
             List<int> sizes = new();
             foreach (Directory dir in validOptions)
@@ -210,26 +207,18 @@ namespace AdventOfCode2022.Scripts
             return false;
         }
         public void MakeDir(string name)
-        { 
-
+        {
             Directory dir = new(name, this);
             dir.depth = depth + 1;
             directories.Add(dir);
         }
-        public void MakeFile(string name, int size)
-        {
-            files.Add(name, size);
-        }
+        public void MakeFile(string name, int size) => files.Add(name, size);
         public Directory FindDir(string path)
         {
             foreach (string dir in path.Split('/'))
-            {
                 foreach (var d in directories)
-                {
                     if (d.name == dir)
                         return d;
-                }
-            }
             throw new Exception("dir not fount at path " + path);
         }
 

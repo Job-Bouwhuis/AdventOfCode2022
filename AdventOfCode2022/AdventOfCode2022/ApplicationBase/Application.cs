@@ -10,6 +10,9 @@ namespace AdventOfCode2022
         Type[] puzzles;
         IMyPuzzle? puzzle = null;
         bool solvedPuzzle = false;
+        bool wait = true;
+        bool forceShowPuzzles = false;
+        int lastEnteredDayNumber = 0;
 
         public Application()
         {
@@ -31,9 +34,11 @@ namespace AdventOfCode2022
         public void Setup()
         {
             Console.WriteLine();
-            Console.WriteLine("Loading puzzles...");
-            Console.WriteLine();
+            Console.Write("\nLoading puzzles");
+            Task e = "................".StringAnimationChar(50).ForeachAsync(x => Console.Write(x));
             puzzles = TypeWorker.FindTypesWithAttribute<PuzzleAttribute>();
+            e.Wait();
+            Console.WriteLine();
         }
 
         public override void Start(params string[] args)
@@ -91,9 +96,7 @@ namespace AdventOfCode2022
             Console.WriteLine("\n\n\tPress 'SPACE' to solve another puzzle, or 'ESC' to exit.");
         }
 
-        bool wait = true;
-        bool forceShowPuzzles = false;
-        int lastEnteredDayNumber = 0;
+
         public override void OnTick(Tick tick)
         {
             if (puzzle is null)
@@ -106,11 +109,12 @@ namespace AdventOfCode2022
             }
             if (!solvedPuzzle)
                 SolvePuzzle();
+
+
             ConsoleKey? key = null;
             if (!forceShowPuzzles)
                 if (wait)
                     key = Console.ReadKey().Key;
-
 
             if (key is not null && key == ConsoleKey.Escape)
                 Exit();

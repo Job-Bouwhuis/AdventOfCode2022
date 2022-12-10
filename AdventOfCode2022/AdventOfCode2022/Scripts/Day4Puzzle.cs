@@ -27,6 +27,7 @@ public class Day4Puzzle : IMyPuzzle
             bool check1 = range1.Min >= range2.Min;
             bool check2 = range1.Max <= range2.Max;
             bool check3 = check1 && check2;
+
             bool check4 = range1.Min <= range2.Min;
             bool check5 = range1.Max >= range2.Max;
             bool check6 = check4 && check5;

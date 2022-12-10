@@ -27,7 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\SnowLibrary Nuget package source": {},
+          "C:\\SnowLibrary Packages Source": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -52,6 +52,8 @@ namespace AdventOfCode2022.Scripts
                 int from = TypeWorker.CastPrimitive<int>(strings[3]);
                 int destination = TypeWorker.CastPrimitive<int>(strings[5]);
 
+
+
                 foreach (int i in count)
                     MoveItem(from - 1, destination - 1);
             }

@@ -37,6 +37,7 @@ namespace AdventOfCode2022
             Console.Write("\nLoading puzzles");
             Task e = "................".StringAnimationChar(50).ForeachAsync(x => Console.Write(x));
             puzzles = TypeWorker.FindTypesWithAttribute<PuzzleAttribute>();
+            puzzles = puzzles.OrderBy(x => x.GetCustomAttribute<PuzzleAttribute>()!.day).ToArray();
             e.Wait();
             Console.WriteLine();
         }
